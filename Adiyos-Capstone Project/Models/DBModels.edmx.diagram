@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4c93938fe042459d99f93e3d9801eeb3" Name="Diagram1">
+        <EntityTypeShape EntityType="AdiyosDBModel.Patient" Width="1.5" PointX="1.125" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdiyosDBModel.Patient_Cardivascular_System" Width="1.5" PointX="1.125" PointY="21.75" />
+        <EntityTypeShape EntityType="AdiyosDBModel.Patient_Diabetes_Info" Width="1.5" PointX="1.125" PointY="7.75" />
+        <EntityTypeShape EntityType="AdiyosDBModel.Patient_Distol_Pulse" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="AdiyosDBModel.Patient_Endocrine" Width="1.5" PointX="3.375" PointY="4.75" />
+        <EntityTypeShape EntityType="AdiyosDBModel.Patient_Endocrine_System" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="AdiyosDBModel.Patient_Family_History" Width="1.5" PointX="5.375" PointY="4.75" />
+        <EntityTypeShape EntityType="AdiyosDBModel.Patient_Habits" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="AdiyosDBModel.Patient_Lab_Biochemistry" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="AdiyosDBModel.Patient_Lab_Diabetdiet" Width="1.5" PointX="3.375" PointY="7.75" />
+        <EntityTypeShape EntityType="AdiyosDBModel.Patient_Lab_Hemoglobin" Width="1.5" PointX="1.125" PointY="18.625" />
+        <EntityTypeShape EntityType="AdiyosDBModel.Patient_Lab_Urine" Width="1.5" PointX="1.125" PointY="10.875" />
+        <EntityTypeShape EntityType="AdiyosDBModel.Patient_Medical_History" Width="1.5" PointX="1.125" PointY="27.75" />
+        <EntityTypeShape EntityType="AdiyosDBModel.Patient_Medics" Width="1.5" PointX="1.125" PointY="24.875" />
+        <EntityTypeShape EntityType="AdiyosDBModel.Patient_Neuroscience" Width="1.5" PointX="1.125" PointY="13.625" />
+        <EntityTypeShape EntityType="AdiyosDBModel.Patient_Obstetric_History" Width="1.5" PointX="1.125" PointY="30.5" />
+        <EntityTypeShape EntityType="AdiyosDBModel.Patient_Physical_Info" Width="1.5" PointX="1.125" PointY="32.875" />
+        <EntityTypeShape EntityType="AdiyosDBModel.sysdiagrams" Width="1.5" PointX="5.375" PointY="7.75" />
+        <AssociationConnector Association="AdiyosDBModel.FK_Patient_Patient_Cardivascular_System" />
+        <AssociationConnector Association="AdiyosDBModel.FK_Patient_Patient_Diabetes_Info" />
+        <AssociationConnector Association="AdiyosDBModel.FK_Patient_Patient_Lab_Hemoglobin" />
+        <AssociationConnector Association="AdiyosDBModel.FK_Patient_Patient_Lab_Urine" />
+        <AssociationConnector Association="AdiyosDBModel.FK_Patient_Patient_Medical_History" />
+        <AssociationConnector Association="AdiyosDBModel.FK_Patient_Patient_Medics" />
+        <AssociationConnector Association="AdiyosDBModel.FK_Patient_Patient_Neuroscience" />
+        <AssociationConnector Association="AdiyosDBModel.FK_Patient_Patient_Obstetric_History" />
+        <AssociationConnector Association="AdiyosDBModel.FK_Patient_Patient_Physical_Info" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

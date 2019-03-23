@@ -1,0 +1,863 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AdiyosDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FileID" Type="int" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Surname" Type="varchar" MaxLength="50" />
+          <Property Name="Gender" Type="varchar" MaxLength="50" />
+          <Property Name="Birthplace" Type="varchar" MaxLength="50" />
+          <Property Name="Birthday" Type="date" />
+          <Property Name="MaritalStatus" Type="varchar" MaxLength="50" />
+          <Property Name="EducationStatus" Type="varchar" MaxLength="50" />
+          <Property Name="Salary" Type="int" />
+        </EntityType>
+        <EntityType Name="Patient_Cardivascular_System">
+          <Key>
+            <PropertyRef Name="Patient_ID" />
+          </Key>
+          <Property Name="Patient_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SystolicLeft" Type="int" />
+          <Property Name="SystolicRight" Type="int" />
+          <Property Name="DiastolicLeft" Type="int" />
+          <Property Name="DiastlicRight" Type="int" />
+          <Property Name="Pulse" Type="int" />
+        </EntityType>
+        <EntityType Name="Patient_Diabetes_Info">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DiabetesStartDate" Type="date" />
+          <Property Name="DiabetesStartStatus" Type="varchar" MaxLength="50" />
+          <Property Name="ApplyReason" Type="varchar" MaxLength="50" />
+          <Property Name="Complaints" Type="varchar" MaxLength="50" />
+          <Property Name="Story" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Patient_Distol_Pulse">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DorsalisPedisLeft" Type="int" />
+          <Property Name="DorsalisPedisRight" Type="int" />
+          <Property Name="TibialisLeft" Type="int" />
+          <Property Name="TibialisRight" Type="int" />
+          <Property Name="PosteriorLeft" Type="int" />
+          <Property Name="PosteriorRight" Type="int" />
+        </EntityType>
+        <EntityType Name="Patient_Endocrine">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Thyroid" Type="varchar" MaxLength="50" />
+          <Property Name="Obesity" Type="varchar" MaxLength="50" />
+          <Property Name="Diğer" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Patient_Endocrine_System">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Retinopati" Type="bit" />
+          <Property Name="Nefropati" Type="bit" />
+          <Property Name="Nöropati" Type="bit" />
+          <Property Name="Dislipidemi" Type="bit" />
+          <Property Name="KAH" Type="bit" />
+          <Property Name="DiabeticFoot" Type="bit" />
+          <Property Name="Amputasyon" Type="bit" />
+          <Property Name="Charcot" Type="bit" />
+          <Property Name="Hipertansiyon" Type="bit" />
+        </EntityType>
+        <EntityType Name="Patient_Family_History">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FamilyHistories" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Patient_Habits">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cigarette" Type="bit" />
+          <Property Name="Alcohol" Type="bit" />
+        </EntityType>
+        <EntityType Name="Patient_Lab_Biochemistry">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Hba1C" Type="varchar" MaxLength="50" />
+          <Property Name="Fruktozamin" Type="varchar" MaxLength="50" />
+          <Property Name="FastingGlucose" Type="varchar" MaxLength="50" />
+          <Property Name="Sedimantasyon" Type="varchar" MaxLength="50" />
+          <Property Name="Ure" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Patient_Lab_Diabetdiet">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DiabetDiet" Type="bit" />
+          <Property Name="KAH" Type="bit" />
+          <Property Name="Practice" Type="bit" />
+          <Property Name="SMBG" Type="bit" />
+        </EntityType>
+        <EntityType Name="Patient_Lab_Hemoglobin">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HB" Type="int" />
+          <Property Name="HCT" Type="int" />
+          <Property Name="LÖK" Type="int" />
+          <Property Name="TROMP" Type="int" />
+          <Property Name="HipCircumference" Type="int" />
+        </EntityType>
+        <EntityType Name="Patient_Lab_Urine">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dansite" Type="int" />
+          <Property Name="Protein" Type="int" />
+          <Property Name="Sediment" Type="int" />
+        </EntityType>
+        <EntityType Name="Patient_Medical_History">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Surgery" Type="varchar" MaxLength="50" />
+          <Property Name="Infection" Type="varchar" MaxLength="50" />
+          <Property Name="MajorDisease" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Patient_Medics">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MedicName" Type="varchar" MaxLength="50" />
+          <Property Name="MedicAmount" Type="int" />
+          <Property Name="MedicDailyAmount" Type="int" />
+          <Property Name="MedicType" Type="bit" />
+        </EntityType>
+        <EntityType Name="Patient_Neuroscience">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DiapasonLeft" Type="int" />
+          <Property Name="DiapasonRight" Type="int" />
+          <Property Name="MonofilamentLeft" Type="int" />
+          <Property Name="MonofilamentRight" Type="int" />
+          <Property Name="PatellaLeft" Type="int" />
+          <Property Name="PatellaRight" Type="int" />
+          <Property Name="AchillesLeft" Type="int" />
+          <Property Name="AchillesRight" Type="int" />
+          <Property Name="PosteriorLeft" Type="int" />
+          <Property Name="PosteriorRight" Type="int" />
+          <Property Name="EngineSystemLeft" Type="int" />
+          <Property Name="EngineSystemRight" Type="int" />
+          <Property Name="UrogenitalApparatus" Type="varchar" MaxLength="50" />
+          <Property Name="RespiratoryTract" Type="varchar" MaxLength="50" />
+          <Property Name="GastrointestinalSystem" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Patient_Obstetric_History">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ObstetricStatus" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Patient_Physical_Info">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Weight" Type="int" />
+          <Property Name="Length" Type="float" />
+          <Property Name="BKI" Type="int" />
+          <Property Name="WaistCircumference" Type="int" />
+          <Property Name="HipCircumference" Type="int" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Patient_Patient_Diabetes_Info">
+          <End Role="Patient_Diabetes_Info" Type="Self.Patient_Diabetes_Info" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Patient_Diabetes_Info">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Patient_Medics">
+          <End Role="Patient_Medics" Type="Self.Patient_Medics" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Patient_Medics">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Patient_Neuroscience">
+          <End Role="Patient_Neuroscience" Type="Self.Patient_Neuroscience" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Patient_Neuroscience">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Patient_Obstetric_History">
+          <End Role="Patient_Obstetric_History" Type="Self.Patient_Obstetric_History" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Patient_Obstetric_History">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Patient_Physical_Info">
+          <End Role="Patient_Physical_Info" Type="Self.Patient_Physical_Info" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Patient_Physical_Info">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AdiyosDBModelStoreContainer">
+          <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient_Cardivascular_System" EntityType="Self.Patient_Cardivascular_System" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient_Diabetes_Info" EntityType="Self.Patient_Diabetes_Info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient_Distol_Pulse" EntityType="Self.Patient_Distol_Pulse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient_Endocrine" EntityType="Self.Patient_Endocrine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient_Endocrine_System" EntityType="Self.Patient_Endocrine_System" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient_Family_History" EntityType="Self.Patient_Family_History" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient_Habits" EntityType="Self.Patient_Habits" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient_Lab_Biochemistry" EntityType="Self.Patient_Lab_Biochemistry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient_Lab_Diabetdiet" EntityType="Self.Patient_Lab_Diabetdiet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient_Lab_Hemoglobin" EntityType="Self.Patient_Lab_Hemoglobin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient_Lab_Urine" EntityType="Self.Patient_Lab_Urine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient_Medical_History" EntityType="Self.Patient_Medical_History" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient_Medics" EntityType="Self.Patient_Medics" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient_Neuroscience" EntityType="Self.Patient_Neuroscience" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient_Obstetric_History" EntityType="Self.Patient_Obstetric_History" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient_Physical_Info" EntityType="Self.Patient_Physical_Info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Patient_Patient_Diabetes_Info" Association="Self.FK_Patient_Patient_Diabetes_Info">
+            <End Role="Patient_Diabetes_Info" EntitySet="Patient_Diabetes_Info" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Patient_Medics" Association="Self.FK_Patient_Patient_Medics">
+            <End Role="Patient_Medics" EntitySet="Patient_Medics" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Patient_Neuroscience" Association="Self.FK_Patient_Patient_Neuroscience">
+            <End Role="Patient_Neuroscience" EntitySet="Patient_Neuroscience" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Patient_Obstetric_History" Association="Self.FK_Patient_Patient_Obstetric_History">
+            <End Role="Patient_Obstetric_History" EntitySet="Patient_Obstetric_History" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Patient_Physical_Info" Association="Self.FK_Patient_Patient_Physical_Info">
+            <End Role="Patient_Physical_Info" EntitySet="Patient_Physical_Info" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AdiyosDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="FileID" />
+          </Key>
+          <Property Name="FileID" Type="Int32" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Birthplace" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Birthday" Type="DateTime" Precision="0" />
+          <Property Name="MaritalStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EducationStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Salary" Type="Int32" />
+          <NavigationProperty Name="Patient_Diabetes_Info" Relationship="AdiyosDBModel.FK_Patient_Patient_Diabetes_Info" FromRole="Patient" ToRole="Patient_Diabetes_Info" />
+          <NavigationProperty Name="Patient_Medics" Relationship="AdiyosDBModel.FK_Patient_Patient_Medics" FromRole="Patient" ToRole="Patient_Medics" />
+          <NavigationProperty Name="Patient_Neuroscience" Relationship="AdiyosDBModel.FK_Patient_Patient_Neuroscience" FromRole="Patient" ToRole="Patient_Neuroscience" />
+          <NavigationProperty Name="Patient_Obstetric_History" Relationship="AdiyosDBModel.FK_Patient_Patient_Obstetric_History" FromRole="Patient" ToRole="Patient_Obstetric_History" />
+          <NavigationProperty Name="Patient_Physical_Info" Relationship="AdiyosDBModel.FK_Patient_Patient_Physical_Info" FromRole="Patient" ToRole="Patient_Physical_Info" />
+        </EntityType>
+        <EntityContainer Name="DBModel" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Patient" EntityType="Self.Patient" />
+          <EntitySet Name="Patient_Cardivascular_System" EntityType="AdiyosDBModel.Patient_Cardivascular_System" />
+          <EntitySet Name="Patient_Diabetes_Info" EntityType="AdiyosDBModel.Patient_Diabetes_Info" />
+          <EntitySet Name="Patient_Distol_Pulse" EntityType="AdiyosDBModel.Patient_Distol_Pulse" />
+          <EntitySet Name="Patient_Endocrine" EntityType="AdiyosDBModel.Patient_Endocrine" />
+          <EntitySet Name="Patient_Endocrine_System" EntityType="AdiyosDBModel.Patient_Endocrine_System" />
+          <EntitySet Name="Patient_Family_History" EntityType="AdiyosDBModel.Patient_Family_History" />
+          <EntitySet Name="Patient_Habits" EntityType="AdiyosDBModel.Patient_Habits" />
+          <EntitySet Name="Patient_Lab_Biochemistry" EntityType="AdiyosDBModel.Patient_Lab_Biochemistry" />
+          <EntitySet Name="Patient_Lab_Diabetdiet" EntityType="AdiyosDBModel.Patient_Lab_Diabetdiet" />
+          <EntitySet Name="Patient_Lab_Hemoglobin" EntityType="AdiyosDBModel.Patient_Lab_Hemoglobin" />
+          <EntitySet Name="Patient_Lab_Urine" EntityType="AdiyosDBModel.Patient_Lab_Urine" />
+          <EntitySet Name="Patient_Medical_History" EntityType="AdiyosDBModel.Patient_Medical_History" />
+          <EntitySet Name="Patient_Medics" EntityType="AdiyosDBModel.Patient_Medics" />
+          <EntitySet Name="Patient_Neuroscience" EntityType="AdiyosDBModel.Patient_Neuroscience" />
+          <EntitySet Name="Patient_Obstetric_History" EntityType="AdiyosDBModel.Patient_Obstetric_History" />
+          <EntitySet Name="Patient_Physical_Info" EntityType="AdiyosDBModel.Patient_Physical_Info" />
+          <EntitySet Name="sysdiagrams" EntityType="AdiyosDBModel.sysdiagrams" />
+          <AssociationSet Name="FK_Patient_Patient_Diabetes_Info" Association="AdiyosDBModel.FK_Patient_Patient_Diabetes_Info">
+            <End Role="Patient_Diabetes_Info" EntitySet="Patient_Diabetes_Info" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Patient_Medics" Association="AdiyosDBModel.FK_Patient_Patient_Medics">
+            <End Role="Patient_Medics" EntitySet="Patient_Medics" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Patient_Neuroscience" Association="AdiyosDBModel.FK_Patient_Patient_Neuroscience">
+            <End Role="Patient_Neuroscience" EntitySet="Patient_Neuroscience" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Patient_Obstetric_History" Association="AdiyosDBModel.FK_Patient_Patient_Obstetric_History">
+            <End Role="Patient_Obstetric_History" EntitySet="Patient_Obstetric_History" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Patient_Physical_Info" Association="AdiyosDBModel.FK_Patient_Patient_Physical_Info">
+            <End Role="Patient_Physical_Info" EntitySet="Patient_Physical_Info" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Patient_Cardivascular_System">
+          <Key>
+            <PropertyRef Name="Patient_ID" />
+          </Key>
+          <Property Name="Patient_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SystolicLeft" Type="Int32" />
+          <Property Name="SystolicRight" Type="Int32" />
+          <Property Name="DiastolicLeft" Type="Int32" />
+          <Property Name="DiastlicRight" Type="Int32" />
+          <Property Name="Pulse" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Patient_Diabetes_Info">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DiabetesStartDate" Type="DateTime" Precision="0" />
+          <Property Name="DiabetesStartStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ApplyReason" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Complaints" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Story" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Patient" Relationship="AdiyosDBModel.FK_Patient_Patient_Diabetes_Info" FromRole="Patient_Diabetes_Info" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="Patient_Distol_Pulse">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DorsalisPedisLeft" Type="Int32" />
+          <Property Name="DorsalisPedisRight" Type="Int32" />
+          <Property Name="TibialisLeft" Type="Int32" />
+          <Property Name="TibialisRight" Type="Int32" />
+          <Property Name="PosteriorLeft" Type="Int32" />
+          <Property Name="PosteriorRight" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Patient_Endocrine">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Thyroid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Obesity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Diğer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Patient_Endocrine_System">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Retinopati" Type="Boolean" />
+          <Property Name="Nefropati" Type="Boolean" />
+          <Property Name="Nöropati" Type="Boolean" />
+          <Property Name="Dislipidemi" Type="Boolean" />
+          <Property Name="KAH" Type="Boolean" />
+          <Property Name="DiabeticFoot" Type="Boolean" />
+          <Property Name="Amputasyon" Type="Boolean" />
+          <Property Name="Charcot" Type="Boolean" />
+          <Property Name="Hipertansiyon" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Patient_Family_History">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FamilyHistories" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Patient_Habits">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cigarette" Type="Boolean" />
+          <Property Name="Alcohol" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Patient_Lab_Biochemistry">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Hba1C" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fruktozamin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FastingGlucose" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sedimantasyon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ure" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Patient_Lab_Diabetdiet">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DiabetDiet" Type="Boolean" />
+          <Property Name="KAH" Type="Boolean" />
+          <Property Name="Practice" Type="Boolean" />
+          <Property Name="SMBG" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Patient_Lab_Hemoglobin">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HB" Type="Int32" />
+          <Property Name="HCT" Type="Int32" />
+          <Property Name="LÖK" Type="Int32" />
+          <Property Name="TROMP" Type="Int32" />
+          <Property Name="HipCircumference" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Patient_Lab_Urine">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dansite" Type="Int32" />
+          <Property Name="Protein" Type="Int32" />
+          <Property Name="Sediment" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Patient_Medical_History">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surgery" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Infection" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MajorDisease" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Patient_Medics">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MedicName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MedicAmount" Type="Int32" />
+          <Property Name="MedicDailyAmount" Type="Int32" />
+          <Property Name="MedicType" Type="Boolean" />
+          <NavigationProperty Name="Patient" Relationship="AdiyosDBModel.FK_Patient_Patient_Medics" FromRole="Patient_Medics" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="Patient_Neuroscience">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DiapasonLeft" Type="Int32" />
+          <Property Name="DiapasonRight" Type="Int32" />
+          <Property Name="MonofilamentLeft" Type="Int32" />
+          <Property Name="MonofilamentRight" Type="Int32" />
+          <Property Name="PatellaLeft" Type="Int32" />
+          <Property Name="PatellaRight" Type="Int32" />
+          <Property Name="AchillesLeft" Type="Int32" />
+          <Property Name="AchillesRight" Type="Int32" />
+          <Property Name="PosteriorLeft" Type="Int32" />
+          <Property Name="PosteriorRight" Type="Int32" />
+          <Property Name="EngineSystemLeft" Type="Int32" />
+          <Property Name="EngineSystemRight" Type="Int32" />
+          <Property Name="UrogenitalApparatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RespiratoryTract" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GastrointestinalSystem" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Patient" Relationship="AdiyosDBModel.FK_Patient_Patient_Neuroscience" FromRole="Patient_Neuroscience" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="Patient_Obstetric_History">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ObstetricStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Patient" Relationship="AdiyosDBModel.FK_Patient_Patient_Obstetric_History" FromRole="Patient_Obstetric_History" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="Patient_Physical_Info">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Weight" Type="Int32" />
+          <Property Name="Length" Type="Double" />
+          <Property Name="BKI" Type="Int32" />
+          <Property Name="WaistCircumference" Type="Int32" />
+          <Property Name="HipCircumference" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Patient" Relationship="AdiyosDBModel.FK_Patient_Patient_Physical_Info" FromRole="Patient_Physical_Info" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Patient_Patient_Diabetes_Info">
+          <End Type="AdiyosDBModel.Patient_Diabetes_Info" Role="Patient_Diabetes_Info" Multiplicity="1" />
+          <End Type="AdiyosDBModel.Patient" Role="Patient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Patient_Diabetes_Info">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Patient_Medics">
+          <End Type="AdiyosDBModel.Patient_Medics" Role="Patient_Medics" Multiplicity="1" />
+          <End Type="AdiyosDBModel.Patient" Role="Patient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Patient_Medics">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Patient_Neuroscience">
+          <End Type="AdiyosDBModel.Patient_Neuroscience" Role="Patient_Neuroscience" Multiplicity="1" />
+          <End Type="AdiyosDBModel.Patient" Role="Patient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Patient_Neuroscience">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Patient_Obstetric_History">
+          <End Type="AdiyosDBModel.Patient_Obstetric_History" Role="Patient_Obstetric_History" Multiplicity="1" />
+          <End Type="AdiyosDBModel.Patient" Role="Patient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Patient_Obstetric_History">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Patient_Physical_Info">
+          <End Type="AdiyosDBModel.Patient_Physical_Info" Role="Patient_Physical_Info" Multiplicity="1" />
+          <End Type="AdiyosDBModel.Patient" Role="Patient" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Patient_Physical_Info">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AdiyosDBModelStoreContainer" CdmEntityContainer="DBModel">
+          <EntitySetMapping Name="Patient">
+            <EntityTypeMapping TypeName="AdiyosDBModel.Patient">
+              <MappingFragment StoreEntitySet="Patient">
+                <ScalarProperty Name="FileID" ColumnName="FileID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Birthplace" ColumnName="Birthplace" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+                <ScalarProperty Name="EducationStatus" ColumnName="EducationStatus" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient_Cardivascular_System">
+            <EntityTypeMapping TypeName="AdiyosDBModel.Patient_Cardivascular_System">
+              <MappingFragment StoreEntitySet="Patient_Cardivascular_System">
+                <ScalarProperty Name="Pulse" ColumnName="Pulse" />
+                <ScalarProperty Name="DiastlicRight" ColumnName="DiastlicRight" />
+                <ScalarProperty Name="DiastolicLeft" ColumnName="DiastolicLeft" />
+                <ScalarProperty Name="SystolicRight" ColumnName="SystolicRight" />
+                <ScalarProperty Name="SystolicLeft" ColumnName="SystolicLeft" />
+                <ScalarProperty Name="Patient_ID" ColumnName="Patient_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient_Diabetes_Info">
+            <EntityTypeMapping TypeName="AdiyosDBModel.Patient_Diabetes_Info">
+              <MappingFragment StoreEntitySet="Patient_Diabetes_Info">
+                <ScalarProperty Name="Story" ColumnName="Story" />
+                <ScalarProperty Name="Complaints" ColumnName="Complaints" />
+                <ScalarProperty Name="ApplyReason" ColumnName="ApplyReason" />
+                <ScalarProperty Name="DiabetesStartStatus" ColumnName="DiabetesStartStatus" />
+                <ScalarProperty Name="DiabetesStartDate" ColumnName="DiabetesStartDate" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient_Distol_Pulse">
+            <EntityTypeMapping TypeName="AdiyosDBModel.Patient_Distol_Pulse">
+              <MappingFragment StoreEntitySet="Patient_Distol_Pulse">
+                <ScalarProperty Name="PosteriorRight" ColumnName="PosteriorRight" />
+                <ScalarProperty Name="PosteriorLeft" ColumnName="PosteriorLeft" />
+                <ScalarProperty Name="TibialisRight" ColumnName="TibialisRight" />
+                <ScalarProperty Name="TibialisLeft" ColumnName="TibialisLeft" />
+                <ScalarProperty Name="DorsalisPedisRight" ColumnName="DorsalisPedisRight" />
+                <ScalarProperty Name="DorsalisPedisLeft" ColumnName="DorsalisPedisLeft" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient_Endocrine">
+            <EntityTypeMapping TypeName="AdiyosDBModel.Patient_Endocrine">
+              <MappingFragment StoreEntitySet="Patient_Endocrine">
+                <ScalarProperty Name="Diğer" ColumnName="Diğer" />
+                <ScalarProperty Name="Obesity" ColumnName="Obesity" />
+                <ScalarProperty Name="Thyroid" ColumnName="Thyroid" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient_Endocrine_System">
+            <EntityTypeMapping TypeName="AdiyosDBModel.Patient_Endocrine_System">
+              <MappingFragment StoreEntitySet="Patient_Endocrine_System">
+                <ScalarProperty Name="Hipertansiyon" ColumnName="Hipertansiyon" />
+                <ScalarProperty Name="Charcot" ColumnName="Charcot" />
+                <ScalarProperty Name="Amputasyon" ColumnName="Amputasyon" />
+                <ScalarProperty Name="DiabeticFoot" ColumnName="DiabeticFoot" />
+                <ScalarProperty Name="KAH" ColumnName="KAH" />
+                <ScalarProperty Name="Dislipidemi" ColumnName="Dislipidemi" />
+                <ScalarProperty Name="Nöropati" ColumnName="Nöropati" />
+                <ScalarProperty Name="Nefropati" ColumnName="Nefropati" />
+                <ScalarProperty Name="Retinopati" ColumnName="Retinopati" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient_Family_History">
+            <EntityTypeMapping TypeName="AdiyosDBModel.Patient_Family_History">
+              <MappingFragment StoreEntitySet="Patient_Family_History">
+                <ScalarProperty Name="FamilyHistories" ColumnName="FamilyHistories" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient_Habits">
+            <EntityTypeMapping TypeName="AdiyosDBModel.Patient_Habits">
+              <MappingFragment StoreEntitySet="Patient_Habits">
+                <ScalarProperty Name="Alcohol" ColumnName="Alcohol" />
+                <ScalarProperty Name="Cigarette" ColumnName="Cigarette" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient_Lab_Biochemistry">
+            <EntityTypeMapping TypeName="AdiyosDBModel.Patient_Lab_Biochemistry">
+              <MappingFragment StoreEntitySet="Patient_Lab_Biochemistry">
+                <ScalarProperty Name="Ure" ColumnName="Ure" />
+                <ScalarProperty Name="Sedimantasyon" ColumnName="Sedimantasyon" />
+                <ScalarProperty Name="FastingGlucose" ColumnName="FastingGlucose" />
+                <ScalarProperty Name="Fruktozamin" ColumnName="Fruktozamin" />
+                <ScalarProperty Name="Hba1C" ColumnName="Hba1C" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient_Lab_Diabetdiet">
+            <EntityTypeMapping TypeName="AdiyosDBModel.Patient_Lab_Diabetdiet">
+              <MappingFragment StoreEntitySet="Patient_Lab_Diabetdiet">
+                <ScalarProperty Name="SMBG" ColumnName="SMBG" />
+                <ScalarProperty Name="Practice" ColumnName="Practice" />
+                <ScalarProperty Name="KAH" ColumnName="KAH" />
+                <ScalarProperty Name="DiabetDiet" ColumnName="DiabetDiet" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient_Lab_Hemoglobin">
+            <EntityTypeMapping TypeName="AdiyosDBModel.Patient_Lab_Hemoglobin">
+              <MappingFragment StoreEntitySet="Patient_Lab_Hemoglobin">
+                <ScalarProperty Name="HipCircumference" ColumnName="HipCircumference" />
+                <ScalarProperty Name="TROMP" ColumnName="TROMP" />
+                <ScalarProperty Name="LÖK" ColumnName="LÖK" />
+                <ScalarProperty Name="HCT" ColumnName="HCT" />
+                <ScalarProperty Name="HB" ColumnName="HB" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient_Lab_Urine">
+            <EntityTypeMapping TypeName="AdiyosDBModel.Patient_Lab_Urine">
+              <MappingFragment StoreEntitySet="Patient_Lab_Urine">
+                <ScalarProperty Name="Sediment" ColumnName="Sediment" />
+                <ScalarProperty Name="Protein" ColumnName="Protein" />
+                <ScalarProperty Name="Dansite" ColumnName="Dansite" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient_Medical_History">
+            <EntityTypeMapping TypeName="AdiyosDBModel.Patient_Medical_History">
+              <MappingFragment StoreEntitySet="Patient_Medical_History">
+                <ScalarProperty Name="MajorDisease" ColumnName="MajorDisease" />
+                <ScalarProperty Name="Infection" ColumnName="Infection" />
+                <ScalarProperty Name="Surgery" ColumnName="Surgery" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient_Medics">
+            <EntityTypeMapping TypeName="AdiyosDBModel.Patient_Medics">
+              <MappingFragment StoreEntitySet="Patient_Medics">
+                <ScalarProperty Name="MedicType" ColumnName="MedicType" />
+                <ScalarProperty Name="MedicDailyAmount" ColumnName="MedicDailyAmount" />
+                <ScalarProperty Name="MedicAmount" ColumnName="MedicAmount" />
+                <ScalarProperty Name="MedicName" ColumnName="MedicName" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient_Neuroscience">
+            <EntityTypeMapping TypeName="AdiyosDBModel.Patient_Neuroscience">
+              <MappingFragment StoreEntitySet="Patient_Neuroscience">
+                <ScalarProperty Name="GastrointestinalSystem" ColumnName="GastrointestinalSystem" />
+                <ScalarProperty Name="RespiratoryTract" ColumnName="RespiratoryTract" />
+                <ScalarProperty Name="UrogenitalApparatus" ColumnName="UrogenitalApparatus" />
+                <ScalarProperty Name="EngineSystemRight" ColumnName="EngineSystemRight" />
+                <ScalarProperty Name="EngineSystemLeft" ColumnName="EngineSystemLeft" />
+                <ScalarProperty Name="PosteriorRight" ColumnName="PosteriorRight" />
+                <ScalarProperty Name="PosteriorLeft" ColumnName="PosteriorLeft" />
+                <ScalarProperty Name="AchillesRight" ColumnName="AchillesRight" />
+                <ScalarProperty Name="AchillesLeft" ColumnName="AchillesLeft" />
+                <ScalarProperty Name="PatellaRight" ColumnName="PatellaRight" />
+                <ScalarProperty Name="PatellaLeft" ColumnName="PatellaLeft" />
+                <ScalarProperty Name="MonofilamentRight" ColumnName="MonofilamentRight" />
+                <ScalarProperty Name="MonofilamentLeft" ColumnName="MonofilamentLeft" />
+                <ScalarProperty Name="DiapasonRight" ColumnName="DiapasonRight" />
+                <ScalarProperty Name="DiapasonLeft" ColumnName="DiapasonLeft" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient_Obstetric_History">
+            <EntityTypeMapping TypeName="AdiyosDBModel.Patient_Obstetric_History">
+              <MappingFragment StoreEntitySet="Patient_Obstetric_History">
+                <ScalarProperty Name="ObstetricStatus" ColumnName="ObstetricStatus" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient_Physical_Info">
+            <EntityTypeMapping TypeName="AdiyosDBModel.Patient_Physical_Info">
+              <MappingFragment StoreEntitySet="Patient_Physical_Info">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="HipCircumference" ColumnName="HipCircumference" />
+                <ScalarProperty Name="WaistCircumference" ColumnName="WaistCircumference" />
+                <ScalarProperty Name="BKI" ColumnName="BKI" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="AdiyosDBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
